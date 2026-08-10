@@ -1,0 +1,25 @@
+{
+  "AlarmName": "CloudWatch-To-Guance-Test",
+  "AWSAccountId": "123456789012",
+  "NewStateValue": "ALARM",
+  "OldStateValue": "OK",
+  "NewStateReason": "测试 CloudWatch 告警转发到观测云",
+  "StateChangeTime": "2026-07-29T07:00:00.000Z",
+  "Region": "China (Beijing)",
+  "Trigger": {
+    "MetricName": "CPUUtilization",
+    "Namespace": "AWS/EC2",
+    "StatisticType": "Statistic",
+    "Statistic": "AVERAGE",
+    "Period": 300,
+    "EvaluationPeriods": 1,
+    "Threshold": 80,
+    "ComparisonOperator": "GreaterThanThreshold",
+    "Dimensions": [
+      {
+        "name": "InstanceId",
+        "value": "i-test123456"
+      }
+    ]
+  }
+}
