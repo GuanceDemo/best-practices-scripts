@@ -1,0 +1,16 @@
+# FDK is installed by Dockerfile.optimized. The OCI SDK is vendored as a
+# pruned package under ./oci; installing the full published distribution would
+# add all OCI service clients and significantly increase the runtime image.
+httptools==0.8.0
+
+# Dependencies required by the vendored OCI SDK.
+certifi==2026.7.22
+cryptography==50.0.0
+pyOpenSSL==26.4.0
+python-dateutil==2.9.0.post0
+pytz==2026.3.post1
+urllib3==2.7.0
+circuitbreaker==2.1.3
+crc32c==2.8
+PyJWT==2.13.0
+typing_extensions==4.16.0

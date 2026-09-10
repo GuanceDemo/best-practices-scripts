@@ -1,0 +1,19 @@
+{
+  "cloudEventsVersion": "0.1",
+  "eventID": "example-event-id",
+  "eventType": "com.oraclecloud.objectstorage.createobject",
+  "source": "objectstorage",
+  "eventTypeVersion": "2.0",
+  "eventTime": "2026-08-11T10:00:00Z",
+  "contentType": "application/json",
+  "data": {
+    "resourceName": "waf-logs/ap-singapore-1/prod/2026/08/11/waf.json.gz",
+    "compartmentId": "ocid1.compartment.oc1..example",
+    "additionalDetails": {
+      "eTag": "example-etag",
+      "namespace": "example_namespace",
+      "bucketName": "oci-waf-logs",
+      "bucketId": "ocid1.bucket.oc1..example"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+fdk/
+tests/
+__pycache__/
+*.pyc
+.DS_Store
+sample-event.json
+test-waf-log.jsonl
