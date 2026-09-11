@@ -7,20 +7,27 @@ import urllib.error
 import urllib.request
 import uuid
 
-APP_ID = "cn1_guance_com"
+# 必填：填写 RUM 应用 ID；该值同时用作 Redis Bitmap 命名空间。
+# collector.py 与 metrics.py 必须配置为相同值。
+APP_ID = ""
 MYSQL_CONNECTOR_ID_DEFAULT = "rum_mysql"
 REDIS_CONNECTOR_ID_DEFAULT = "rum_redis"
 DATAWAY_CONNECTOR_ID_DEFAULT = "demo_dataway"
 BITMAP_RETENTION_DAYS = 90
-OPENAPI_URL_DEFAULT = "https://cn3-openapi.guance.com/api/v1/df/query_data_v1"
+# 必填：填写观测云 Query Data V1 OpenAPI 完整地址。
+# 也可以通过 Func 环境变量 RUM_OPENAPI_URL 覆盖此默认值。
+OPENAPI_URL_DEFAULT = ""
 TIMEZONE = datetime.timezone(datetime.timedelta(hours=8))
 MAX_BACKFILL_DAYS = 365
 DEFAULT_PAGE_SIZE = 1000
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
-DQL_ACTIVE = """R('cn1_guance_com')::session:(`userid`,`user_name`,`user_email`,`gc_workspace_id`,`gc_workspace_name`) { `user_email` != '' and user_email != undefined}"""
-DQL_COST_CENTER = """R('cn1_guance_com')::action:(`register_email`) { `action_name` = '开通' and view_name = '/businessRegister'}"""
-DQL_ORDINARY = """R('cn1_guance_com')::view:(distinct(`user_email`)) {session_id in ((R('cn1_guance_com')::action:(`session_id`) { `action_name` = '注册并加入工作空间' and view_name = '/zh/join/workspace'})) and user_email != ''}"""
+# 必填：根据实际 RUM 数据和业务事件填写三条 DQL。
+# DQL_ACTIVE 应返回用户身份及工作空间属性；另外两条分别返回费用中心和普通新增候选用户。
+# 查询时间范围由 OpenAPI timeRange 传入，DQL 中不要写固定时间窗口。
+DQL_ACTIVE = ""
+DQL_COST_CENTER = ""
+DQL_ORDINARY = ""
 
 SCHEMA_SQL = [
     """CREATE TABLE IF NOT EXISTS rum_user_identity (

@@ -3,7 +3,9 @@ import hashlib
 import json
 import uuid
 
-APP_ID = "cn1_guance_com"
+# 必填：填写 RUM 应用 ID；必须与 collector.py 中的 APP_ID 保持一致。
+# 该值用于定位同一组 Redis Bitmap 命名空间。
+APP_ID = ""
 MYSQL_CONNECTOR_ID = "rum_mysql"
 REDIS_CONNECTOR_ID = "rum_redis"
 DATAWAY_CONNECTOR_ID = "demo_dataway"
