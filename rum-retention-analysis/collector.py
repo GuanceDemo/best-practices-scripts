@@ -23,7 +23,7 @@ DEFAULT_PAGE_SIZE = 1000
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
 # 必填：根据实际 RUM 数据和业务事件填写三条 DQL。
-# DQL_ACTIVE 应返回用户身份及工作空间属性；另外两条分别返回费用中心和普通新增候选用户。
+# DQL_ACTIVE 应返回用户身份及工作空间属性；另外两条分别返回新增付费用户和普通新增用户。
 # 查询时间范围由 OpenAPI timeRange 传入，DQL 中不要写固定时间窗口。
 DQL_ACTIVE = ""
 DQL_COST_CENTER = ""
