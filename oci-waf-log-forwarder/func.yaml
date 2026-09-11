@@ -1,0 +1,19 @@
+schema_version: 20180708
+name: oci-waf-log-forwarder
+version: 0.2.1
+runtime: python
+build_image: fnproject/python:3.11-dev
+run_image: fnproject/python:3.11
+entrypoint: /python/bin/fdk /function/func.py handler
+memory: 512
+timeout: 300
+config:
+  DATAKIT_PORT: "9529"
+  DATAKIT_PROTOCOL: http
+  FORWARD_BATCH_BYTES: "1048576"
+  FORWARD_BATCH_SIZE: "500"
+  HTTP_TIMEOUT: "15"
+  LOG_SAMPLE_RATE: "1"
+  MAX_RETRIES: "3"
+  SERVICE: oci_waf
+  SOURCE: oci_waf

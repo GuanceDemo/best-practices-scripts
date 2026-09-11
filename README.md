@@ -7,5 +7,6 @@
 | 目录 | 说明 |
 | --- | --- |
 | [`aws-cloudwatch-to-guance`](./aws-cloudwatch-to-guance/) | 通过 Amazon SNS 和 DataFlux Func 将 AWS CloudWatch Alarm 转换为观测云外部事件 |
+| [`oci-waf-log-forwarder`](./oci-waf-log-forwarder/) | 通过 Object Storage、OCI Events 和 OCI Functions 将 OCI WAF 日志写入观测云 |
 
 所有脚本均使用占位符或环境变量保存账号、ARN、Webhook 等环境相关配置。使用前请阅读对应目录中的说明并完成测试。
